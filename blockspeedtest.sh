@@ -80,14 +80,12 @@ done
 
 # Chặn truy cập tới tên miền Speedtest qua DNS (port 53)
 for domain in "${SPEEDTEST_DOMAINS[@]}"; do
-    echo "Chặn tên miền DNS: $domain"
     iptables -A OUTPUT -p udp --dport 53 -m string --string "$domain" --algo bm -j DROP
     iptables -A OUTPUT -p tcp --dport 53 -m string --string "$domain" --algo bm -j DROP
 done
 
 # Chặn truy cập trực tiếp tới các tên miền qua HTTP/HTTPS (port 80, 443)
 for domain in "${SPEEDTEST_DOMAINS[@]}"; do
-    echo "Chặn tên miền HTTP/HTTPS: $domain"
     iptables -A OUTPUT -p tcp --dport 80 -m string --string "$domain" --algo bm -j DROP
     iptables -A OUTPUT -p tcp --dport 443 -m string --string "$domain" --algo bm -j DROP
 done
