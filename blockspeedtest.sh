@@ -110,8 +110,5 @@ fi
 
 # Thông báo hoàn tất
 echo "Đã chặn toàn bộ dịch vụ Speedtest tại Việt Nam và quốc tế trên VPS."
-echo "Các rule đã được lưu vào /etc/iptables/rules.v4"
-echo "Kiểm tra rule: iptables -L -v"
-echo "Xóa rule nếu cần: iptables -F (cẩn thận, sẽ xóa tất cả rule hiện tại)"
 
 exit 0
